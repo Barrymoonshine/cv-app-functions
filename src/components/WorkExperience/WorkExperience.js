@@ -33,15 +33,13 @@ const WorkExperience = () => {
   const addExperience = () => {
     const newExperience = {
       id: uniqid(),
-      role: '',
-      organisation: '',
-      dateFrom: '',
-      dateTo: '',
-      responsibilities: ``,
+      role: 'New',
+      organisation: 'New',
+      dateFrom: 'New',
+      dateTo: 'New',
+      responsibilities: `New`,
     };
-    setExperiences((prevState) => ({
-      experiences: [...prevState, newExperience],
-    }));
+    setExperiences((prevState) => [...prevState, newExperience]);
   };
 
   const updateFormVisibility = (boolean) => {
