@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './WorkExperience.css';
 import EditButton from '../Buttons/EditButton/EditButton';
+import DeleteButton from '../Buttons/DeleteButton/DeleteButton';
 import uniqid from 'uniqid';
 
 const WorkExperience = () => {
@@ -39,19 +40,20 @@ const WorkExperience = () => {
       responsibilities: ``,
     };
     setExperiences((prevState) => ({
-      state: [...prevState, newExperience],
+      experiences: [...prevState, newExperience],
     }));
   };
 
-  const updateFormVisibility = (id, boolean) => {
+  const updateFormVisibility = (boolean) => {
+    setExperiences((prevState) => ({
+      ...prevState,
+      isFormVisible: boolean,
+    }));
+  };
+
+  const deleteExperience = (id) => {
     setExperiences((prevState) => {
-      const updatedArray = prevState.map((experience) => {
-        if (experience.id === id) {
-          return { ...experience, isFormVisible: boolean };
-        }
-        return experience;
-      });
-      return { experiences: updatedArray };
+      return prevState.filter((experience) => experience.id !== id);
     });
   };
 
@@ -74,17 +76,22 @@ const WorkExperience = () => {
               <div key={uniqid()} className='responsibilities-details'>
                 <div key={uniqid()}>{experience.responsibilities}</div>
               </div>
-              <button
+              <EditButton
                 key={uniqid()}
-                className='edit-button'
-                onClick={() => updateFormVisibility(experience.id, true)}
-              >
-                Edit
-              </button>
+                onClick={() => updateFormVisibility(true)}
+              />
+              <DeleteButton
+                key={uniqid()}
+                className='delete-button'
+                onClick={() => deleteExperience(experience.id)}
+              />
             </div>
           )}
         </div>
       ))}
+      <button onClick={addExperience} className='new-experience-button'>
+        + Work experience
+      </button>
     </div>
   );
 };
