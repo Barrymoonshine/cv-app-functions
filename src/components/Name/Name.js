@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Name.css';
 import NameForm from '../NameForm/NameForm';
+import EditButton from '../Buttons/EditButton/EditButton';
 
 const Name = () => {
   const [firstName, setFirstName] = useState('Joe');
@@ -13,6 +14,7 @@ const Name = () => {
   };
 
   const updateFormVisibility = () => {
+    console.log('updateFormVisibility clicked');
     setFormVisibility((isFormVisible = !isFormVisible));
   };
 
@@ -25,9 +27,7 @@ const Name = () => {
               <div>{firstName}</div>
               <div>{secondName}</div>
             </div>
-            <button className='edit-button' onClick={updateFormVisibility}>
-              Edit
-            </button>
+            <EditButton onClick={updateFormVisibility} />
           </div>
         )}
       </div>
