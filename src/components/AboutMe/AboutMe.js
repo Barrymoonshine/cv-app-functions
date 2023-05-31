@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AboutMe.css';
 import EditButton from '../Buttons/EditButton/EditButton';
+import AboutMeForm from '../AboutMeForm/AboutMeForm';
 
 const AboutMe = () => {
   const [aboutMe, setAboutMe] =
@@ -30,6 +31,13 @@ const AboutMe = () => {
             <EditButton onClick={updateFormVisibility} />
           </div>
         )}
+      </div>
+      <div>
+        <AboutMeForm
+          isFormVisible={isFormVisible}
+          updateFormVisibility={updateFormVisibility}
+          updateAboutMe={updateAboutMe}
+        />
       </div>
     </div>
   );
