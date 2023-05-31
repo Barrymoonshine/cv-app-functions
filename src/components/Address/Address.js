@@ -31,7 +31,7 @@ const Address = () => {
               <div>{state.zipCode}</div>
               <div>{state.country}</div>
             </div>
-            <EditButton onClick={updateFormVisibility} />
+            <EditButton onClick={() => updateFormVisibility(true)} />
           </div>
         )}
       </div>
