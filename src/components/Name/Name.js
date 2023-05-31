@@ -14,7 +14,6 @@ const Name = () => {
   };
 
   const updateFormVisibility = () => {
-    console.log('updateFormVisibility clicked');
     setFormVisibility((isFormVisible = !isFormVisible));
   };
 

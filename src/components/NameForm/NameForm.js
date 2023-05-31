@@ -1,5 +1,6 @@
 import './NameForm.css';
 import React, { useState } from 'react';
+import SubmitButton from '../Buttons/SubmitButton/SubmitButton';
 
 const NameForm = (props) => {
   const [inputField, setInputField] = useState({
@@ -43,9 +44,7 @@ const NameForm = (props) => {
               onChange={handleInputs}
               required
             />
-            <button className='submit-button' type='submit'>
-              Submit
-            </button>
+            <SubmitButton />
           </form>
         </div>
       )}
