@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './WorkExperience.css';
 import EditButton from '../Buttons/EditButton/EditButton';
 import DeleteButton from '../Buttons/DeleteButton/DeleteButton';
+import AddNewButton from '../Buttons/AddNewButton/AddNewButton';
 import uniqid from 'uniqid';
 
 const WorkExperience = () => {
@@ -87,9 +88,7 @@ const WorkExperience = () => {
           )}
         </div>
       ))}
-      <button onClick={addExperience} className='new-experience-button'>
-        + Work experience
-      </button>
+      <AddNewButton onClick={addExperience} text={'+ Work experience'} />
     </div>
   );
 };
