@@ -1,5 +1,6 @@
 import './App.css';
 import Name from './components/Name/Name';
+import Address from './components/Address/Address';
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         <div className='cv-container'>
           <div className='left-container'>
             <Name />
+            <Address />
           </div>
         </div>
       </main>
