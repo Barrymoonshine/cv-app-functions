@@ -4,9 +4,10 @@ import EditButton from '../Buttons/EditButton/EditButton';
 import DeleteButton from '../Buttons/DeleteButton/DeleteButton';
 import AddNewButton from '../Buttons/AddNewButton/AddNewButton';
 import uniqid from 'uniqid';
+import WorkExperienceForm from '../WorkExperienceForm/WorkExperienceForm';
 
 const WorkExperience = () => {
-  const [experiences, setExperiences] = useState([
+  const [experiences, setExperience] = useState([
     {
       id: uniqid(),
       role: 'President of the United States',
@@ -40,19 +41,45 @@ const WorkExperience = () => {
       dateTo: 'New',
       responsibilities: `New`,
     };
-    setExperiences((prevState) => [...prevState, newExperience]);
+    setExperience((prevState) => [...prevState, newExperience]);
   };
 
   const updateFormVisibility = (boolean) => {
-    setExperiences((prevState) => ({
+    setExperience((prevState) => ({
       ...prevState,
       isFormVisible: boolean,
     }));
   };
 
   const deleteExperience = (id) => {
-    setExperiences((prevState) => {
+    setExperience((prevState) => {
       return prevState.filter((experience) => experience.id !== id);
+    });
+  };
+
+  const updateExperience = (
+    idSelected,
+    roleInput,
+    organisationInput,
+    dateFromInput,
+    dateToInput,
+    responsibilitiesInput
+  ) => {
+    setExperience((prevState) => {
+      prevState.map((experience) => {
+        if (experience.id === id) {
+          return {
+            ...experience,
+            id: idSelected,
+            role: roleInput,
+            organisation: organisationInput,
+            dateFrom: dateFromInput,
+            dateTo: dateToInput,
+            responsibilities: responsibilitiesInput,
+          };
+        }
+        return experience;
+      });
     });
   };
 
@@ -86,6 +113,14 @@ const WorkExperience = () => {
               />
             </div>
           )}
+          <WorkExperienceForm
+            key={uniqid()}
+            experienceId={experience.id}
+            isFormVisible={experience.isFormVisible}
+            updateExperience={updateExperience}
+            updateFormVisibility={updateFormVisibility}
+            updateFormVisibilityCallBack={this.updateFormVisibilityCallBack}
+          />
         </div>
       ))}
       <AddNewButton onClick={addExperience} text={'+ Work experience'} />
