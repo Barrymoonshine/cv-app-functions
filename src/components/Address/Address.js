@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Address.css';
 import EditButton from '../Buttons/EditButton/EditButton';
+import AddressForm from '../AddressForm/AddressForm';
 
 const Address = () => {
   const [state, setState] = useState({
@@ -16,6 +17,23 @@ const Address = () => {
     setState((prevState) => ({
       ...prevState,
       isFormVisible: boolean,
+    }));
+  };
+
+  const updateAddress = (
+    firstLineInput,
+    secondLineInput,
+    cityInput,
+    zipCodeInput,
+    countryInput
+  ) => {
+    setState((prevState) => ({
+      ...prevState,
+      firstLine: firstLineInput,
+      secondLine: secondLineInput,
+      city: cityInput,
+      zipCode: zipCodeInput,
+      country: countryInput,
     }));
   };
 
@@ -35,6 +53,11 @@ const Address = () => {
           </div>
         )}
       </div>
+      <AddressForm
+        isFormVisible={state.isFormVisible}
+        updateAddress={updateAddress}
+        updateFormVisibility={updateFormVisibility}
+      />
     </div>
   );
 };

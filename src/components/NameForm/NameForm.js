@@ -16,7 +16,7 @@ const NameForm = (props) => {
     }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const { firstNameInput, secondNameInput } = e.target;
     props.updateName(firstNameInput.value, secondNameInput.value);
@@ -27,7 +27,7 @@ const NameForm = (props) => {
     <div>
       {props.isFormVisible && (
         <div className='name-container'>
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleSubmit}>
             <label>First name:</label>
             <input
               type='text'
