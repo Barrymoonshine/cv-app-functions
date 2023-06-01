@@ -3,6 +3,7 @@ import Name from './components/Name/Name';
 import Address from './components/Address/Address';
 import AboutMe from './components/AboutMe/AboutMe';
 import WorkExperience from './components/WorkExperience/WorkExperience';
+import Education from './components/Education/Education';
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
           <div className='right-container'>
             <div className='sub-titles'> Work experience</div>
             <WorkExperience />
+            <div className='sub-titles'>Education</div>
+            <Education />
           </div>
         </div>
       </main>

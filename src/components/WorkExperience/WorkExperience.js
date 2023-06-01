@@ -45,7 +45,6 @@ const WorkExperience = () => {
   };
 
   const updateFormVisibility = (boolean, id) => {
-    console.log(`updateFormVisibility called`);
     const updatedArray = experiences.map((experience) => {
       if (experience.id === id) {
         return {
@@ -72,8 +71,7 @@ const WorkExperience = () => {
     dateToInput,
     responsibilitiesInput
   ) => {
-    const arrayClone = [...experiences];
-    const updatedArray = arrayClone.map((experience) => {
+    const updatedArray = experiences.map((experience) => {
       if (experience.id === id) {
         return {
           ...experience,
@@ -87,7 +85,6 @@ const WorkExperience = () => {
       }
       return experience;
     });
-    console.log(updatedArray);
     setExperience(updatedArray);
   };
 
@@ -118,7 +115,6 @@ const WorkExperience = () => {
             experienceId={experience.id}
             isFormVisible={experience.isFormVisible}
             updateExperience={updateExperience}
-            updateFormVisibility={updateFormVisibility}
           />
         </div>
       ))}
