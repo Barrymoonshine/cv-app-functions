@@ -45,7 +45,6 @@ const WorkExperience = () => {
   };
 
   const updateFormVisibility = (boolean, id) => {
-    console.log(`id ${id}`);
     const updatedArray = experiences.map((experience) => {
       if (experience.id === id) {
         return {
@@ -55,7 +54,6 @@ const WorkExperience = () => {
       }
       return experience;
     });
-    console.log('updatedArray - updateFormVisibility', updatedArray);
     setExperience(updatedArray);
   };
 
@@ -73,7 +71,7 @@ const WorkExperience = () => {
     dateToInput,
     responsibilitiesInput
   ) => {
-    const arrayClone = structuredClone(experiences);
+    const arrayClone = [...experiences];
     const updatedArray = arrayClone.map((experience) => {
       if (experience.id === id) {
         return {
@@ -87,41 +85,34 @@ const WorkExperience = () => {
       }
       return experience;
     });
+    console.log(updatedArray);
     setExperience(updatedArray);
   };
 
   return (
     <div className='work-experience-container'>
       {experiences.map((experience) => (
-        <div key={uniqid()} className='work-experience-details'>
+        <div key={experience.id} className='work-experience-details'>
           {!experience.isFormVisible && (
-            <div key={uniqid()}>
-              <div key={uniqid()} className='experience-first-line'>
-                <div key={uniqid()} className='role'>
-                  {experience.role}
-                </div>
-                <div key={uniqid()}>{experience.organisation}</div>
+            <div>
+              <div className='experience-first-line'>
+                <div className='role'>{experience.role}</div>
+                <div>{experience.organisation}</div>
               </div>
-              <div key={uniqid()} className='experience-second-line'>
-                <div key={uniqid()}>{experience.dateFrom}</div> &nbsp;-&nbsp;
-                <div key={uniqid()}>{experience.dateTo}</div>
+              <div className='experience-second-line'>
+                <div>{experience.dateFrom}</div> &nbsp;-&nbsp;
+                <div>{experience.dateTo}</div>
               </div>
-              <div key={uniqid()} className='responsibilities-details'>
-                <div key={uniqid()}>{experience.responsibilities}</div>
+              <div className='responsibilities-details'>
+                <div>{experience.responsibilities}</div>
               </div>
               <EditButton
-                key={uniqid()}
                 onClick={() => updateFormVisibility(true, experience.id)}
               />
-              <DeleteButton
-                key={uniqid()}
-                className='delete-button'
-                onClick={() => deleteExperience(experience.id)}
-              />
+              <DeleteButton onClick={() => deleteExperience(experience.id)} />
             </div>
           )}
           <WorkExperienceForm
-            key={uniqid()}
             experienceId={experience.id}
             isFormVisible={experience.isFormVisible}
             updateExperience={updateExperience}
