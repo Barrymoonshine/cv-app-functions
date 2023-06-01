@@ -45,6 +45,7 @@ const WorkExperience = () => {
   };
 
   const updateFormVisibility = (boolean, id) => {
+    console.log(`id ${id}`);
     const updatedArray = experiences.map((experience) => {
       if (experience.id === id) {
         return {
@@ -54,7 +55,7 @@ const WorkExperience = () => {
       }
       return experience;
     });
-
+    console.log('updatedArray - updateFormVisibility', updatedArray);
     setExperience(updatedArray);
   };
 
@@ -65,29 +66,28 @@ const WorkExperience = () => {
   };
 
   const updateExperience = (
-    idSelected,
+    id,
     roleInput,
     organisationInput,
     dateFromInput,
     dateToInput,
     responsibilitiesInput
   ) => {
-    setExperience((prevState) => {
-      prevState.map((experience) => {
-        if (experience.id === idSelected) {
-          return {
-            ...experience,
-            id: idSelected,
-            role: roleInput,
-            organisation: organisationInput,
-            dateFrom: dateFromInput,
-            dateTo: dateToInput,
-            responsibilities: responsibilitiesInput,
-          };
-        }
-        return experience;
-      });
+    const arrayClone = structuredClone(experiences);
+    const updatedArray = arrayClone.map((experience) => {
+      if (experience.id === id) {
+        return {
+          ...experience,
+          role: roleInput,
+          organisation: organisationInput,
+          dateFrom: dateFromInput,
+          dateTo: dateToInput,
+          responsibilities: responsibilitiesInput,
+        };
+      }
+      return experience;
     });
+    setExperience(updatedArray);
   };
 
   return (

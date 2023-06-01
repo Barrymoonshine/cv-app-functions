@@ -29,13 +29,14 @@ const WorkExperienceForm = (props) => {
       responsibilitiesInput,
     } = e.target;
     props.updateExperience(
+      props.experienceId,
       roleInput.value,
       organisationInput.value,
       dateFromInput.value,
       dateToInput.value,
       responsibilitiesInput.value
     );
-    props.updateFormVisibility(false);
+    props.updateFormVisibility(false, props.experienceId);
   };
 
   return (
