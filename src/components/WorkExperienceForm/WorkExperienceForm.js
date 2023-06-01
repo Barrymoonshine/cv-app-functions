@@ -36,7 +36,6 @@ const WorkExperienceForm = (props) => {
       dateToInput.value,
       responsibilitiesInput.value
     );
-    props.updateFormVisibility(false, props.experienceId);
   };
 
   return (

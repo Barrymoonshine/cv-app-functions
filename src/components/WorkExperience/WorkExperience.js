@@ -45,6 +45,7 @@ const WorkExperience = () => {
   };
 
   const updateFormVisibility = (boolean, id) => {
+    console.log(`updateFormVisibility called`);
     const updatedArray = experiences.map((experience) => {
       if (experience.id === id) {
         return {
@@ -81,6 +82,7 @@ const WorkExperience = () => {
           dateFrom: dateFromInput,
           dateTo: dateToInput,
           responsibilities: responsibilitiesInput,
+          isFormVisible: false,
         };
       }
       return experience;
