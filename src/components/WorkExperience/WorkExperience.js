@@ -44,11 +44,18 @@ const WorkExperience = () => {
     setExperience((prevState) => [...prevState, newExperience]);
   };
 
-  const updateFormVisibility = (boolean) => {
-    setExperience((prevState) => ({
-      ...prevState,
-      isFormVisible: boolean,
-    }));
+  const updateFormVisibility = (boolean, id) => {
+    const updatedArray = experiences.map((experience) => {
+      if (experience.id === id) {
+        return {
+          ...experience,
+          isFormVisible: boolean,
+        };
+      }
+      return experience;
+    });
+
+    setExperience(updatedArray);
   };
 
   const deleteExperience = (id) => {
@@ -67,7 +74,7 @@ const WorkExperience = () => {
   ) => {
     setExperience((prevState) => {
       prevState.map((experience) => {
-        if (experience.id === id) {
+        if (experience.id === idSelected) {
           return {
             ...experience,
             id: idSelected,
@@ -104,7 +111,7 @@ const WorkExperience = () => {
               </div>
               <EditButton
                 key={uniqid()}
-                onClick={() => updateFormVisibility(true)}
+                onClick={() => updateFormVisibility(true, experience.id)}
               />
               <DeleteButton
                 key={uniqid()}
@@ -119,7 +126,6 @@ const WorkExperience = () => {
             isFormVisible={experience.isFormVisible}
             updateExperience={updateExperience}
             updateFormVisibility={updateFormVisibility}
-            updateFormVisibilityCallBack={this.updateFormVisibilityCallBack}
           />
         </div>
       ))}
