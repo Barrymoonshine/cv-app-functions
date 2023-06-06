@@ -1,0 +1,12 @@
+.add-new-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #6ee7b7;
+  margin: 10px 10px 10px 0px;
+}
+
+.add-new-button:hover {
+  cursor: pointer;
+  background-color: #5dc99e;
+}
