@@ -6,6 +6,9 @@ import AboutMe from './components/AboutMe/AboutMe';
 import WorkExperience from './components/WorkExperience/WorkExperience';
 import Education from './components/Education/Education';
 import Skills from './components/Skills/Skills';
+import workExperienceIcon from './assets/work-experience.png';
+import educationIcon from './assets/education.png';
+import skillsIcon from './assets/skills.png';
 
 const App = () => {
   return (
@@ -15,18 +18,35 @@ const App = () => {
         <div className='cv-container'>
           <div className='left-container'>
             <Name />
-            <Address />
             <div className='sub-titles'>Contact</div>
+            <Address />
             <Contact />
             <div className='sub-titles'>About me</div>
             <AboutMe />
           </div>
           <div className='right-container'>
-            <div className='sub-titles'> Work experience</div>
+            <div className='sub-titles'>
+              <img
+                src={workExperienceIcon}
+                className='work-experience-icon'
+                alt='Work experience'
+              ></img>
+              &nbsp; Work experience
+            </div>
             <WorkExperience />
-            <div className='sub-titles'>Education</div>
+            <div className='sub-titles'>
+              <img
+                src={educationIcon}
+                className='education-icon'
+                alt='Education'
+              ></img>
+              &nbsp;Education
+            </div>
             <Education />
-            <div className='sub-titles'>Skills</div>
+            <div className='sub-titles'>
+              <img src={skillsIcon} className='skills-icon' alt='Skills'></img>
+              &nbsp;Skills
+            </div>
             <Skills />
           </div>
         </div>
