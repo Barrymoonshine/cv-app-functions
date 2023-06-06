@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './SkillsForm.css';
 import SubmitButton from '../Buttons/SubmitButton/SubmitButton';
 
 const SkillsForm = (props) => {
