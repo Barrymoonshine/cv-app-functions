@@ -16,7 +16,9 @@ const App = () => {
           <div className='left-container'>
             <Name />
             <Address />
+            <div className='sub-titles'>Contact</div>
             <Contact />
+            <div className='sub-titles'>About me</div>
             <AboutMe />
           </div>
           <div className='right-container'>
@@ -29,6 +31,17 @@ const App = () => {
           </div>
         </div>
       </main>
+      <div className='footer'>
+        <p>
+          © Made by
+          <a href='https://github.com/Barrymoonshine'>Barry Moonshine</a> for
+          <a href='https://www.theodinproject.com/'>The Odin Project</a>
+          Icons by{' '}
+          <a target='_blank' href='https://icons8.com' rel='noreferrer'>
+            Icons8
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
