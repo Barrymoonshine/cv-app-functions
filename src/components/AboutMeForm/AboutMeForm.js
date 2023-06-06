@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './AboutMeForm.css';
 import SubmitButton from '../Buttons/SubmitButton/SubmitButton';
 
 const AboutMeForm = (props) => {
