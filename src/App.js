@@ -1,6 +1,7 @@
 import './App.css';
 import Name from './components/Name/Name';
 import Address from './components/Address/Address';
+import Contact from './components/Contact/Contact';
 import AboutMe from './components/AboutMe/AboutMe';
 import WorkExperience from './components/WorkExperience/WorkExperience';
 import Education from './components/Education/Education';
@@ -15,6 +16,7 @@ const App = () => {
           <div className='left-container'>
             <Name />
             <Address />
+            <Contact />
             <AboutMe />
           </div>
           <div className='right-container'>
